@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>ECF Vidéotèque</title>
+</head>
+
+<body>
+    <header>
+        <div class="container text-center" id="titre"><h1>FILMS À L'AFFICHE</h1></div><!--Titre--><!--ID TITRE-->
+    </header>
+    <div class="row mt-5"><!--Ajouter-->
+        <div class="col-4">
+        <div class="button" id="ajouter"><!--ID AJOUTER-->
+            <button>AJOUTER</button>
+            <div class="row mt-3">
+                <div class="col-6">
+                    <div class="text" id="filtre"><!--ID FILTRE-->
+                        <label for="filtrer-par" class="choix">Filtrer par:</label><!--Filtrer par-->
+                    </div>
+                </div>
+            </div>
+            <select id="choix"><!--Choix de l'utilisateur--><!--ID CHOIX-->
+                <div class="row mt-5">
+                    <div class="col-6">
+                        <option value="titre" id="titre">Titre</option>
+                        <option value="annee" id="annee">Année</option>
+                        <option value="realisateur" id="realisateur">Réalisateur</option>
+            </select>
+                    <button type="submit" name="sauvegarder">Sauvegarder</button><!--Sauvegarder si rempli les champs-->
+                    </div>
+                </div>
+            <div class="row">
+                <div class="col-3" id="film"><!--ID FILM-->
+                  <table>
+                    <thead><!--En-tête du tableau-->
+                        <tr>
+                          <th>TITRE</th>
+                          <th>ANNEE</th>
+                          <th>REALISATEUR</th>
+                        </tr>
+                    </thead>
+                    <tbody><!--Corps du tableau-->
+                        <tr><!--1ère ligne du tableau-->
+                            <td>La ligne verte</td>
+                            <td>Année 2000</td>
+                            <td>Franck Darabont</td>
+                            <td><button type="submit" id="un">Supprimer</button></td>
+                        </tr>
+                        <tr><!--2ème ligne du tableau-->
+                            <td>Le Roi lion</td>
+                            <td>Année 1994</td>
+                            <td>Roger Allers et Rob Minkoff</td>
+                            <td><button type="submit" id="deux">Supprimer</button></td>
+                        </tr>
+                         <tr><!--3ème ligne du tableau-->
+                            <td>Gladiator</td>
+                            <td>Année 2000</td>
+                            <td>Ridley Scott</td>
+                            <td><button type="submit" id="trois">Supprimer</button></td>
+                        </tr>
+                         <tr><!--4ème ligne du tableau-->
+                            <td>Avatar</td>
+                            <td>Année 2009</td>
+                            <td>James Cameron</td>
+                            <td><button type="submit" id="quatre">Supprimer</button></td>
+                        </tr>
+                    </tbody>
+                  </table>  
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/app.js" rel="stylesheet"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>

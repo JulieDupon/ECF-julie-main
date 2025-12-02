@@ -10,11 +10,12 @@
 </head>
 
 <body>
+    <img src="assets/img/fond-cinema.webp" id="fond" class="fond" alt="Fond d'écran">
     <header>
-        <div class="container text-center" id="titre"><h1>FILMS À L'AFFICHE</h1></div><!--Titre--><!--ID TITRE-->
+        <div class="container text-center mt-5" id="titre"><h1>FILMS À L'AFFICHE</h1></div><!--Titre--><!--ID TITRE-->
     </header>
     <div class="row mt-5"><!--Ajouter-->
-        <div class="col-4">
+        <div class="col-12">
         <div class="button" id="ajouter"><!--ID AJOUTER-->
             <button>AJOUTER</button>
             <div class="row mt-3">
@@ -26,17 +27,22 @@
             </div>
             <select id="choix"><!--Choix de l'utilisateur--><!--ID CHOIX-->
                 <div class="row mt-5">
-                    <div class="col-6">
+                    <div class="col-3">
                         <option value="titre" id="titre">Titre</option>
                         <option value="annee" id="annee">Année</option>
                         <option value="realisateur" id="realisateur">Réalisateur</option>
             </select>
-                    <button type="submit" name="sauvegarder">Sauvegarder</button><!--Sauvegarder si rempli les champs-->
+            <!-- <div class="row">
+                <input type="text"  placeholder="Entrer un titre">
+                <input type="number" id="number" placeholder="Entrer une année">
+                <input type="text" placeholder="Entrer un realisateur">
+            </div> -->
+                    <button type="submit" name="bouton" id="sauvgarder">Sauvegarder</button><!--Sauvegarder si rempli les champs-->
                     </div>
                 </div>
-            <div class="row">
-                <div class="col-3" id="film"><!--ID FILM-->
-                  <table>
+            <div class="row mt-5">
+                <div class="col-12" id="film"><!--ID FILM-->
+                  <table><!--tableau-->
                     <thead><!--En-tête du tableau-->
                         <tr>
                           <th>TITRE</th>

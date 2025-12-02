@@ -4,7 +4,7 @@
 }
 header {
     text-decoration: underline;
-    background-color: yellow;
+    background-color: white;
     padding: 20px;
 }
 #fond {
@@ -16,18 +16,24 @@ header {
   z-index: -1;
   object-fit: cover;
 } 
-.button #ajouter {
+button {
+    margin-top: 10px;
+    margin-bottom: 10px;
     background-color: blue;
-    padding: 20px;
+    padding: 15px;
+    display: flex;
+}
+#sauvegarder {
+    background-color: green;
 }
 table {
-    background-color: yellow;
+    background-color: white;
     text-align: center; 
-    display: block;
-    justify-items: center;
-    width: 100%;
+    display: inline-flexbox;
+    width: 80%;
     margin: auto;
 }
+
 table thead th {
     border-collapse: collapse;
     border: 1px solid black;
@@ -40,5 +46,9 @@ table tr td {
 }
 
 #filtre {
-    background-color: yellow;
+    background-color: white;
+}
+#un, #deux, #trois, #quatre {
+    background-color: red;
+    
 }

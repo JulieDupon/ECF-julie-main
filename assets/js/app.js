@@ -1,23 +1,23 @@
 let film = [
     {
-        title: "La ligne verte",
-        years: 2000,
-        authors: "Franck Darabont"
+        titre: "Deadpool",
+        annee: 2016,
+        realisateur: "Tim Miller"
     },
     {
-        title: "Le Roi Lion",
-        years: 1994,
-        authors: "Roger Allers et Rob Minkoff"
+        titre: "Spiderman",
+        annee: 2002,
+        realisateur: "Sam Raimi"
     },
     {
-        title: "Gladiator",
-        years: 2000,
-        authors: "Ridley Scott"
+        titre: "Scream",
+        annee: 1996,
+        realisateur: "Wes Craven"
     },
     {
-        title: "Avatar",
-        years: 2009,
-        authors: "James Cameron"
+        titre: "It: Chapter 1",
+        annee: 2019,
+        realisateur: "Andy Muschietti"
     }
 ];
 console.log(film);
@@ -28,36 +28,51 @@ let realisateur = document.getElementById("realisateur")
 
 
 const button = document.getElementById("ajouter");//vérification des données de l'utilisateur
-button.addEventListener("click", () => {
-    if(titre.lengt < 2 ){
+
+button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if(titre.value.length < 2 ){
         alert("Le titre doit avoir au moins 2 caractères!");
-        preventDefault();
         return false;
     }
-    if(annee.length < 4){
+    if(annee.value.length !== 4){
         alert("L'année doit contenir que 4 chiffres!");
-        preventDefault();
         return false;
     }
-    if(realisateur.length < 5 ){
+    if(realisateur.value.length < 5 ){
         alert("Le réalisateur doit avoir minimum 5 caractères!");
+        return false;
     }
         alert("Formulaire valide!");
 });
 
-const choix = document.getElementById("choix"); 
+// const choix = document.getElementById("choix"); 
 const bouton = document.getElementById("sauvegarder");//si formulaire validé 
-bouton.addEventListener("click", () => {
-    if((titre.length === true) && (annee.length === true) && (realisateur.length === true)) {
-        preventDefault();
-    } 
-    // choix.addEventListener("click", () => {}  
-    if({
-        choix = { //j'essaye de rentrer un nouveau film
-        titre.document.getElementById("titre").value
-        annee.document.getElementById("annee").value
-        realisateur.document.getElementById("realisateur").value}
-    });
-    film.push("nouveauFilm")
-    alert("film ajouté avec succès!")
-})
+
+bouton.addEventListener("click", function(e) {
+    e.preventDefault();
+    
+    if(
+        titre.value.length >= 2 && 
+        annee.value.length === 4 &&
+        realisateur.value.length >= 5
+    ){
+
+    let nouveauFilm = {
+        titre: titre.value,
+        annee: annee.value,
+        realisateur: realisateur.value
+    };
+
+    film.push(nouveauFilm) // Ajouter film dans le tableau
+    setTimeout("Film ajouté avec succès!", 3000) //Afficher message d'alerte pendant 3s
+    console.log(film);
+    
+    } else {
+        setTimeout("Erreur dans le formulaire", 5000); //Afficher message d'alerte pendant 5s  
+        console.log(film);
+        
+    }  
+     
+});

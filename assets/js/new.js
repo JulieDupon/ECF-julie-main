@@ -1,57 +1,52 @@
-let film = document.querySelector('#film');
-let episode = document.querySelector('#episode');
-let serie = document.querySelector('#serie');
-let saison = document.querySelector('#saison');
-let button = document.querySelector('#button');
-let resultatDiv = document.querySelector('#resultat');
-
 const key = "cf65b73b";
 
+const btn = document.getElementById("button");
+const resultatDiv = document.getElementById("resultat");
 
-button.addEventListener('click', function() {
 
-    const filmValue = film.value.trim(); //je rajoute le .trim pour eviter les espaces inutiles
-    const episodeValue = episode.value.trim();
-    const serieValue = serie.value.trim();
-    const saisonValue = saison.value.trim();
+button.addEventListener("click", async () => {
 
-    let url = `https://www.omdbapi.com/?apikey=cf65b73b&t=${encodeURIComponent(film)}=${episode}=${serie}=${saison}`; //pour les valeurs de paramamètres caractères spéciaux
+    const film = document.getElementById("film").value;
+    const episode = document.getElementById("episode").value;
+    const serie = document.getElementById("serie").value;
+    const saison = document.getElementById("saison").value;
+
+    let url = `https://www.omdbapi.com/?apikey=${key}`;
 
     /*je peux pas mettre 2 &t sinon ça écrase le premier*/
-    if (filmValue) url += `http://www.omdbapi.com/?apikey=cf65b73b&t=${filmValue.trim()}`; 
-    if (serieValue) url += `http://www.omdbapi.com/?apikey=cf65b73b&t=${serieValue.trim()}`;
-    if (saisonValue) url += `http://www.omdbapi.com/?apikey=cf65b73b&Season=${saisonValue.trim()}`;
-    if (episodeValue) url += `http://www.omdbapi.com/?apikey=cf65b73b&Episode=${episodeValue.trim()}`;
+    if (film) url += `&t=${film}`;
+    if (serie) url += `&s=${serie}`;
+    if (saison) url += `&Season=${saison}`;
+    if (episode) url +=  `&Episode=${episode}`;
 
-    fetch('http://www.omdbapi.com/?t=deadpool&apikey=cf65b73b')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Erreur:', error));   
+    resultatDiv.innerHTML = `<p>chargement...</p>`;
 
-        if (data.Response === "True") {
-            data.Search.forEach
-        }           
-//         const card = ` 
-//             <div class="col-12 col-md-6 col-lg-4 mb-4">
-//                 <div class="card">
-//                     <img src="${poster}" class="card-img-top" alt="${item.title}">
-//                     <div class="card-body">
-//                     <h5 class="card-title">${item.title}</h5>
-//                     <p class="card-text">Année : ${item.year}</p>
-//                     <p class="card-text">Type : ${item.author}</p>
-//                     </div>
-//                 </div>
-//             </div> 
-//             `;  
-//             resultatDiv.innerHTML += card;  
-//             });
-//             console.log("Titre :", data.Title); 
-//             console.log("Année :", data.Year);
-//             console.log("Type :", data.Type);
-//         } else {
-//             console.log("Erreur");
-//         }
-//     )
-//     .catch(error => console.log(error));
-// Array.IndexOf(Search.start)
+try {      
+    const response = await fetch(url); 
+    const data = await response.json();
+
+    if (data.Response === "False") {
+    resultatDiv.innerHTML = `<p class="text-danger text-center">${data.Error}</p>`;
+    return;
+    }
+    if (data.Title) {
+        resultatDiv.innerHTML = `
+            <div class="col-4">
+                <div class="card bg-dark text-white p-3 shadow">
+                    <img src="${data.Poster !== 'N/A' ? data.Poster : 'https://placehold.co/300x400'}" class="card-img-top">
+                    <div class="card-body">
+                            <h3>${data.Title}</h3>
+                            <p><strong>Année :</strong> ${data.Year}</p>
+                            <p><strong>Genre :</strong> ${data.Genre}</p>
+                            <p><strong>Réalisateur :</strong> ${data.Director}</p>
+                            <p><strong>Résumé :</strong> ${data.Plot}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            return;
+        }
+    } catch (err) {
+        result.innerHTML = `<p class="text-danger">Erreur : ${err.message}</p>`;
+    }
 });

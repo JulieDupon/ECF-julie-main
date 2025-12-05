@@ -12,3 +12,19 @@ height: 100%;
 z-index: -1;
 object-fit: cover;
 }
+
+
+/* tablette */
+@media screen and (max-width: 768px) {
+
+}
+
+/* smartphone */
+@media screen and (max-width: 576px) {
+
+    #resultat {
+        display: block;
+        align-items: center;
+    }
+    
+}

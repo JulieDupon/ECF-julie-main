@@ -41,7 +41,7 @@ let anneeValeur = parseInt(annee.value);
         return;
     }
     if (isNaN(anneeValeur) || anneeValeur < 1900 || anneeValeur > anneeActuelle){
-        alert(`L'année doit être entre 1900 et l'année actuelle!`);
+        alert("L'année doit être entre 1900 et l'année actuelle!");
         return;
     }
     // if(annee.value.length !== 4){
@@ -95,12 +95,17 @@ realisateur.value = "";
 });
 
 tbody.addEventListener("click", function(e){
-    if(e.target && e.target.tagName === "BUTTON" && e.target.textContent === "supprimer"){
-        e.target.closest("tr").remove();
+    if(e.target.classList.contains("supprimer")) {
+        e.target.closet("tr").remove();
+    }   
+    });
+
+    
+    //fonction pour mettre la 1ère lettre en majuscule
+    function capitalizeFirstLetter(str) {
+        if (!str) return str;
+        return str.charAt(0).toUpperCase() + str.slice(1);
     }
-});
-
-
 
     // setTimeout("Film ajouté avec succès!", 3000) //Afficher message d'alerte pendant 3s
     // console.log(film);
@@ -110,4 +115,3 @@ tbody.addEventListener("click", function(e){
     //     console.log(film);
         
     // } 
-    <button onclick="window.location.href='new.html';">ajouter</button>    
